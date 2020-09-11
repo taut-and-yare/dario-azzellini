@@ -1,0 +1,29 @@
+# django
+Django>=2,<3.0
+django-sekizai
+django-filer
+
+# cms
+django-cms
+djangocms-bootstrap4
+djangocms-admin-style
+djangocms-text-ckeditor
+djangocms-page-meta
+
+# database
+dj-database-url
+psycopg2_binary
+
+# production
+gunicorn
+django_compressor
+
+# test
+pytest-django
+pytest-factoryboy
+pytest-sugar
+pytest-instafail
+factory-boy>=2.10.0
+Faker
+pytest-cov
+ipdb

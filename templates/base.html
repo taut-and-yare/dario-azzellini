@@ -1,0 +1,53 @@
+
+{% load staticfiles cms_tags sekizai_tags meta page_meta_tags %}
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+    
+      {% block title %}
+      {% page_attribute 'page_title' %} | {{cookiecutter.project_name}}
+      {% endblock %}
+    
+    </title>
+
+    
+    {% page_meta request.current_page as page_meta %}
+    {% include 'djangocms_page_meta/meta.html' with meta=page_meta %}
+    
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    
+    {% addtoblock "css" %}
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    {% endaddtoblock "css" %}
+    
+
+    
+    {% render_block "css" postprocessor "compressor.contrib.sekizai.compress" %}
+    
+
+
+  </head>
+  <body>
+    
+    {% cms_toolbar %}
+    {% block content %}
+    {% endblock %}
+    
+
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    
+    {% render_block "js" postprocessor "compressor.contrib.sekizai.compress" %}
+    
+  </body>
+</html>

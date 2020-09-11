@@ -1,0 +1,5 @@
+media/
+collected_static/
+backups/
+
+.env
